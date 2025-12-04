@@ -1,5 +1,15 @@
 #!/bin/bash
 
+
+echo "Dotfile configuration start"
+if [ -f ~/.vimrc ]; then
+	echo "original .vimrc backup...."
+	mv ~/.vimrc ~/.vimrc.bak
+fi
+
+# Symbolic link
+ls -sf ~/dotfiles/vimrc ~/.vimrc
+
 # install pakages
 echo "installing pakages"
 dnf install -y git tmux vim gcc
