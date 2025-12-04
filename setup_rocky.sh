@@ -8,7 +8,7 @@ if [ -f ~/.vimrc ]; then
 fi
 
 # Symbolic link
-ls -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf ~/dotfiles/vimrc ~/.vimrc
 
 # install pakages
 echo "installing pakages"
