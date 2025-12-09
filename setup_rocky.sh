@@ -1,6 +1,11 @@
 #!/bin/bash
 
 
+# install pakages
+echo "installing pakages git, tmux, vimm gcc fd..."
+dnf install -y git tmux vim gcc fd-find
+
+# Dotfile configuration
 echo "Dotfile configuration start"
 if [ -f ~/.vimrc ]; then
 	echo "original .vimrc backup...."
@@ -9,10 +14,6 @@ fi
 
 # Symbolic link
 ln -sf ~/dotfiles/vimrc ~/.vimrc
-
-# install pakages
-echo "installing pakages"
-dnf install -y git tmux vim gcc
 
 # remove timeout in /etc/profile
 echo "remove time out"
