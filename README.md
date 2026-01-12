@@ -1,5 +1,3 @@
-# dotfiles
-
 ## Getting Strated
 
 - Run the setup script to install pakages and configure the environment:
