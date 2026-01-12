@@ -3,7 +3,7 @@
 
 # install pakages
 echo "installing pakages git, tmux, vimm gcc fd..."
-dnf install -y git tmux vim gcc fd-find
+dnf install -y git tmux vim gcc fd-find > /dev/null || true
 
 # Dotfile configuration
 echo "Dotfile configuration start"
@@ -14,6 +14,13 @@ fi
 
 # Symbolic link
 ln -sf ~/dotfiles/vimrc ~/.vimrc
+
+# bash
+cat >> "$HOME/.bashrc" << 'EOF'
+export PS1="\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ "
+EOF
+
+source $HOME/.bashrc
 
 # remove timeout in /etc/profile
 echo "remove time out"
