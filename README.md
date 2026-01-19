@@ -1,4 +1,4 @@
-## Getting Strated
+## Getting Started
 
 - Run the setup script to install pakages and configure the environment:
 
