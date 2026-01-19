@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# enable repo
+echo "installing repo "
+dnf install epel-release
+dnf makecache
 
 # install pakages
 echo "installing pakages git, tmux, vimm gcc fd..."
-dnf install -y git tmux vim gcc fd-find > /dev/null || true
+dnf install -y git tmux vim gcc fd-find ctags || true
 
 # Dotfile configuration
 echo "Dotfile configuration start"
