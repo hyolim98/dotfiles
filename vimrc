@@ -10,6 +10,7 @@ set title
 set hlsearch
 set mouse=a
 set laststatus=2
+set pastetoggle=<F2>
 syntax on
 
 
