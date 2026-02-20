@@ -2,7 +2,7 @@
 
 # enable repo
 echo "installing repo "
-dnf install epel-release
+dnf install -y epel-release
 dnf makecache
 
 # install pakages
