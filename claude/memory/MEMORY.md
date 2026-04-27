@@ -1,3 +1,4 @@
 - [User role — Storage team on POPCON](user_role.md) — Ceph, Cinder, PWL cache, storage pods focus
 - [POPCON product context](project_popcon.md) — HCI platform; Ubuntu (PCVM) vs Rocky (no PCVM) variants; Kolla + Ceph + Skyline
 - [Redmine-driven dev workflow](project_workflow.md) — Redmine is source of truth for bug RCA/fixes and feature design/test records
+- [Redmine ticket local files](project_redmine_files.md) — `/data/redmine/<id>-<slug>.md`; default workspace when user references a ticket by number
