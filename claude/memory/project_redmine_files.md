@@ -19,4 +19,9 @@ Tickets the user is actively working on are kept as Markdown files in `/data/red
 - When creating new files, pick a slug from the ticket subject and confirm it once with the user before locking it in.
 - Don't sync these files anywhere — the user edits via VSCode Remote-SSH, Claude edits directly.
 - Format: Markdown (Redmine project supports Markdown). Don't auto-convert to Textile unless asked.
-- For Redmine upload, the user copies the file content into the Redmine web UI manually.
+
+**Upload to Redmine:**
+- When the user says "업로드해줘" / "올려줘" / "redmine에 반영해줘" for a ticket, fetch the corresponding Redmine ticket via MCP and update its `description` field with the local file content (`updateIssue`).
+- If the ticket already has a non-empty `description`, **show the user that a body exists and confirm overwrite before proceeding**. Don't silently overwrite.
+- If the ticket description is empty, upload directly without confirmation.
+- After upload, briefly confirm what was written (ticket id, title, char count).

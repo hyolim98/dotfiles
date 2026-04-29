@@ -2,3 +2,5 @@
 - [POPCON product context](project_popcon.md) — HCI platform; Ubuntu (PCVM) vs Rocky (no PCVM) variants; Kolla + Ceph + Skyline
 - [Redmine-driven dev workflow](project_workflow.md) — Redmine is source of truth for bug RCA/fixes and feature design/test records
 - [Redmine ticket local files](project_redmine_files.md) — `/data/redmine/<id>-<slug>.md`; default workspace when user references a ticket by number
+- [Always verify current git branch](feedback_check_branch.md) — user juggles multiple tickets/branches; check `git branch --show-current` before code work, don't assume branch matches last-mentioned ticket
+- [Commit message는 코드 변경 한 줄 요약](feedback_commit_message.md) — `R #<ticket>` 다음에는 일감 제목 복붙이 아니라 실제 변경 요약
