@@ -36,6 +36,31 @@ ln -sfn ~/dotfiles/claude/skills      ~/.claude/skills
 ln -sfn ~/dotfiles/claude/memory      ~/.claude/projects/-data/memory
 ln -sfn ~/dotfiles/claude/admin-core  ~/.claude/admin-core
 
+# Restore previous Claude state from old server (requires OLD_SERVER env var; skip silently if unset)
+if [ -n "$OLD_SERVER" ]; then
+	echo "restoring Claude state from $OLD_SERVER..."
+	REMOTE_DIR="/root/claude-backups"
+	LATEST=$(ssh -o StrictHostKeyChecking=accept-new root@"$OLD_SERVER" \
+		"ls -1t $REMOTE_DIR/claude-*.tar.gz 2>/dev/null | head -1")
+	if [ -n "$LATEST" ]; then
+		scp "root@$OLD_SERVER:$LATEST" /tmp/
+		tar -xzf "/tmp/$(basename "$LATEST")" -C /root
+		chmod 600 /root/.claude/.credentials.json 2>/dev/null || true
+		TS=$(basename "$LATEST" | sed -n 's/claude-\(.*\)\.tar\.gz/\1/p')
+		REDMINE_REMOTE="$REMOTE_DIR/redmine-$TS.tar.gz"
+		if ssh root@"$OLD_SERVER" "test -f $REDMINE_REMOTE" 2>/dev/null; then
+			scp "root@$OLD_SERVER:$REDMINE_REMOTE" /tmp/
+			mkdir -p /data
+			tar -xzf "/tmp/redmine-$TS.tar.gz" -C /data
+		fi
+		echo "  restored: $(basename "$LATEST")"
+	else
+		echo "  [WARN] no backup found at $OLD_SERVER:$REMOTE_DIR"
+	fi
+else
+	echo "[skip] Claude state restore — set OLD_SERVER=<ip> before running to auto-fetch backup."
+fi
+
 # Redmine working directory (ticket .md files live here)
 mkdir -p /data/redmine
 
