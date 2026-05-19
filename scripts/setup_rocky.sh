@@ -64,21 +64,8 @@ fi
 # Redmine working directory (ticket .md files live here)
 mkdir -p /data/redmine
 
-# Redmine MCP server (requires REDMINE_API_KEY env var; skip silently if unset)
-if [ -n "$REDMINE_API_KEY" ]; then
-	echo "registering Redmine MCP..."
-	claude mcp add redmine \
-		--scope user \
-		--env REDMINE_URL=https://redmine.piolink.com \
-		--env REDMINE_API_KEY="$REDMINE_API_KEY" \
-		-- npx -y @onozaty/redmine-mcp-server
-else
-	echo "[skip] Redmine MCP — set REDMINE_API_KEY before running to auto-register."
-	echo "       Or run later: REDMINE_API_KEY=xxx claude mcp add redmine --scope user \\"
-	echo "         --env REDMINE_URL=https://redmine.piolink.com \\"
-	echo "         --env REDMINE_API_KEY=\$REDMINE_API_KEY \\"
-	echo "         -- npx -y @onozaty/redmine-mcp-server"
-fi
+# MCP servers (separate script — can be re-run independently)
+"$(dirname "$0")/setup_mcp.sh"
 
 # bash
 cat >> "$HOME/.bashrc" << 'EOF'

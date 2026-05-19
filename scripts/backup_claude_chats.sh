@@ -33,4 +33,4 @@ fi
 
 echo
 echo "복원: 새 서버에서"
-echo "  OLD_SERVER=<this-host-ip> ./setup_rocky.sh"
+echo "  OLD_SERVER=<this-host-ip> ./scripts/setup_rocky.sh"
