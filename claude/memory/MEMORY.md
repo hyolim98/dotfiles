@@ -4,3 +4,4 @@
 - [Redmine ticket local files](project_redmine_files.md) — `/data/redmine/<id>-<slug>.md`; default workspace when user references a ticket by number
 - [Always verify current git branch](feedback_check_branch.md) — user juggles multiple tickets/branches; check `git branch --show-current` before code work, don't assume branch matches last-mentioned ticket
 - [Commit message는 코드 변경 한 줄 요약](feedback_commit_message.md) — `R #<ticket>` 다음에는 일감 제목 복붙이 아니라 실제 변경 요약
+- [Redmine md 본문 layout — bullet tree](feedback_redmine_md_bullet_layout.md) — `/data/redmine/<id>-*.md` 본문은 paragraph 대신 `- ` 최상위 + `  - ` 하위 들여쓰기로 작성

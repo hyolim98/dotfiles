@@ -71,7 +71,7 @@ mkdir -p /data/redmine
 cat >> "$HOME/.bashrc" << 'EOF'
 export PS1="\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ "
 alias mkbuild='make && make mk-docker-img && make push-docker-img'
-alias authkey='pcm-cli auth -u admin -p Admin123! -s; echo'
+alias authkey='pcli auth -u admin -p Admin123! -s; echo'
 EOF
 
 source $HOME/.bashrc
