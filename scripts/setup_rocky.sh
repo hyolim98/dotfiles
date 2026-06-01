@@ -25,6 +25,12 @@ fi
 # Symbolic link
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 
+# Point dotfiles remote at SSH so `git push` uses the SSH key (idempotent)
+echo "Setting dotfiles remote to SSH..."
+if [ -d ~/dotfiles/.git ]; then
+	git -C ~/dotfiles remote set-url origin git@github.com:hyolim98/dotfiles.git
+fi
+
 # Claude Code
 echo "Claude Code installation..."
 npm install -g @anthropic-ai/claude-code
