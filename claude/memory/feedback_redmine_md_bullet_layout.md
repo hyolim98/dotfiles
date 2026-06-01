@@ -4,7 +4,7 @@ description: "Redmine 일감 .md (/data/redmine/<id>-<slug>.md) 본문 layout �
 metadata: 
   node_type: memory
   type: feedback
-  originSessionId: 3348282f-7c68-46c9-b31f-8e8005882730
+  originSessionId: 39392c20-2635-41ca-9704-f7eb4dfc88a3
 ---
 
 `/data/redmine/<id>-<slug>.md` 파일을 작성/수정할 때 본문 layout 규칙: 섹션 헤더 (##/###) 바로 아래의 모든 내용은 **최상위 불릿 `- `** 로 시작하고, 하위 내용은 한 단계 들여쓴 **`  - `** 로 nesting. paragraph 식 평문 대신 bullet tree 구조 유지. 코드 블록/표는 bullet 의 자식으로 들여쓰기.
