@@ -22,8 +22,14 @@ if [ -f ~/.vimrc ]; then
 	mv ~/.vimrc ~/.vimrc.bak
 fi
 
+if [ -f ~/.tmux.conf ] && [ ! -L ~/.tmux.conf ]; then
+	echo "original .tmux.conf backup...."
+	mv ~/.tmux.conf ~/.tmux.conf.bak
+fi
+
 # Symbolic link
 ln -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 # Point dotfiles remote at SSH so `git push` uses the SSH key (idempotent)
 echo "Setting dotfiles remote to SSH..."
