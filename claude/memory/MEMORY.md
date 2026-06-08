@@ -5,3 +5,6 @@
 - [Always verify current git branch](feedback_check_branch.md) — user juggles multiple tickets/branches; check `git branch --show-current` before code work, don't assume branch matches last-mentioned ticket
 - [Commit message는 코드 변경 한 줄 요약](feedback_commit_message.md) — `R #<ticket>` 다음에는 일감 제목 복붙이 아니라 실제 변경 요약
 - [Redmine md 본문 layout — bullet tree](feedback_redmine_md_bullet_layout.md) — `/data/redmine/<id>-*.md` 본문은 paragraph 대신 `- ` 최상위 + `  - ` 하위 들여쓰기로 작성
+- [CCTV PWL 무익 입증 실험](project_cctv_pwl_test.md) — 일감 #181369 기반; filebench throttle 불가→fio 사용; /data/cctv-pwl-test/
+- [파라미터는 근거와 함께](feedback_justify_parameters.md) — 임의값 제시 금지; 값마다 현실/일감 근거 명시 (사용자가 되물음)
+- [토글은 details로](feedback_toggle_details.md) — 접이식은 Redmine collapse 매크로 말고 `<details>` HTML

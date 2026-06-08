@@ -9,6 +9,8 @@ metadata:
 
 `/data/redmine/<id>-<slug>.md` 파일을 작성/수정할 때 본문 layout 규칙: 섹션 헤더 (##/###) 바로 아래의 모든 내용은 **최상위 불릿 `- `** 로 시작하고, 하위 내용은 한 단계 들여쓴 **`  - `** 로 nesting. paragraph 식 평문 대신 bullet tree 구조 유지. 코드 블록/표는 bullet 의 자식으로 들여쓰기.
 
+**어체: 음슴체(개조식)** — "~함/~됨/~임/명사" 종결. "~이다/~한다/~된다" (한다체) 쓰지 말 것. 근거는 "근거:" 라벨 붙이지 말고 문장에 자연스럽게 녹임. 토글은 [[feedback_toggle_details]] 참고.
+
 **Why:** 사용자가 redmine 본문에 paste 했을 때 일관된 outline 구조로 보이도록. 사용자가 명시적으로 이 layout 을 [[project-redmine-files]] 작성 시 따라달라고 요청.
 
 **How to apply:** 새 redmine md 파일 작성하거나 기존 파일의 §3.1 (문제 분석) / §3.2 (문제 해결) 등 본문 섹션을 다듬을 때 항상 이 layout. paragraph 톤이 자연스러운 설명도 bullet 로 변환. 단 (a) 최상위 헤더 라인 (`# Redmine #...`) 자체, (b) 헤더 직후의 메타 정보(상태/담당/관련 등) 는 이미 bullet 이라 그대로, (c) 인용된 로그/명령은 fenced code block — **`- ` 불릿 prefix 없이** 부모 bullet 의 자식 깊이만큼 tab/space 로만 들여쓰기. 표(table)도 같은 방식.
