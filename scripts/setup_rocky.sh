@@ -73,6 +73,22 @@ else
 	echo "[skip] Claude state restore — set OLD_SERVER=<ip> before running to auto-fetch backup."
 fi
 
+# Claude Code statusLine (status bar: ctx · 5h · weekly usage)
+echo "Claude statusLine configuration..."
+ln -sfn ~/dotfiles/claude/statusline-usage.py ~/.claude/statusline-usage.py
+python3 - <<'PY'
+import json, os
+p = os.path.expanduser("~/.claude/settings.json")
+try:
+    d = json.load(open(p))
+except Exception:
+    d = {}
+d["statusLine"] = {"type": "command", "command": "python3 $HOME/.claude/statusline-usage.py"}
+os.makedirs(os.path.dirname(p), exist_ok=True)
+json.dump(d, open(p, "w"), indent=2, ensure_ascii=False)
+print("[ok] statusLine merged into ~/.claude/settings.json")
+PY
+
 # Redmine working directory (ticket .md files live here)
 mkdir -p /data/redmine
 
