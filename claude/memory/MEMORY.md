@@ -8,3 +8,6 @@
 - [CCTV PWL 무익 입증 실험](project_cctv_pwl_test.md) — 일감 #181369 기반; filebench throttle 불가→fio 사용; /data/cctv-pwl-test/
 - [파라미터는 근거와 함께](feedback_justify_parameters.md) — 임의값 제시 금지; 값마다 현실/일감 근거 명시 (사용자가 되물음)
 - [토글은 details로](feedback_toggle_details.md) — 접이식은 Redmine collapse 매크로 말고 `<details>` HTML
+- [One-line comments](feedback_one_line_comments.md) — 함수/상수 docstring 은 1줄. 여러 줄 docstring 금지
+- [PWL dirty-detach 결함](project_pwl_dirty_detach_gap.md) — dirty 상태 detach 시 admin-core 가 config 제거 → rbd 가드 무력화, stale data attach (2026-06 재현)
+- [POPCON EC는 SSD 전용](project_popcon_ec_ssd_only.md) — #127099 사업팀 결정; HDD EC 주석처리, CCTV EC-on-HDD 막는 원인; config.py fill_ecpool_datapool
